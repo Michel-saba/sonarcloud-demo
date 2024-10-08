@@ -6,6 +6,7 @@ export default function Index() {
    *
    * Note: The corresponding styles are in the ./index.css file.
    */
+  const password =" dfsfjhkgdkjfgljdqlshf"
   return (
     <div className={styles.page}>
       <div className="wrapper">
@@ -16,7 +17,7 @@ export default function Index() {
               Welcome demo-app 👋
             </h1>
           </div>
-
+<div>${password}</div>
           <div id="hero" className="rounded">
             <div className="text-container">
               <h2>
