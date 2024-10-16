@@ -23,7 +23,7 @@ node_modules
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
-.vscode 
+.vscode
 
 # misc
 /.sass-cache
@@ -45,3 +45,7 @@ Thumbs.db
 # Next.js
 .next
 out
+
+# yarn
+.yarn/cache
+yarn.lock
