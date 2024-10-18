@@ -1,47 +1,72 @@
-// create reactjs component as form that have 3 inputs username , email and password and submit button . use pure css . you can use three color : white, blue and red.
+
 'use client';
 import React, { useState } from 'react';
-// import './AddUser.css';
+ import './AddUser.css';
 
-export const AddUser = () => {
+export const AddUser = ({header}) => {
   const [formData, setFormData] = useState({
     username: '',
     password: '',
   });
+  const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
+    handleErrors();
     setFormData((prevState) => ({ ...prevState, [name]: value }));
   };
 
-  const handleSubmit = (event ) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     console.log(formData);
+    if (containsNumber(formData.username)) {
+      console.log('username can not contain number');
+    }
+  };
+  function containsNumber(str: string) {
+    const regex = /\d/;
+    return regex.test(str);
+  }
 
+  const handleErrors = () => {
+    if (formData.username.length < 3) {
+      return 'error';
+    }
+    if (formData.password.length < 8) {
+      return 'error';
+    }
+
+    if (formData.username.length > 3) {
+      console.log('handle errors');
+    }
   };
 
-
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Username:{' '}
+    <form onSubmit={handleSubmit} className="wrapperform">
+      <div
+
+      >
+        <label>Username:</label>
         <input
           type="text"
           name="username"
           value={formData.username}
           onChange={handleChange}
         />
-      </label>
-      <label>
-        Password:
+      </div>
+      <div >
+        <label>Password:</label>
         <input
           type="password"
           name="password"
           value={formData.password}
           onChange={handleChange}
         />
-      </label>
-      <input type="submit" value="Submit" />
+      </div>
+      <div>
+        <button type="submit" value="Submit" >submit</button>
+      </div>
     </form>
   );
 };
