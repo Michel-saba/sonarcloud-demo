@@ -9,7 +9,7 @@ export const AddUser = ({header}) => {
     password: '',
   });
   const [error, setError] = useState('');
-  const [success, setSuccess] = useState('');
+  const [success, isSuccess] = useState(false);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -65,7 +65,7 @@ export const AddUser = ({header}) => {
         />
       </div>
       <div>
-        <button type="submit" value="Submit" >submit</button>
+        <button type="submit" value="Submit" >add user</button>
       </div>
     </form>
   );
